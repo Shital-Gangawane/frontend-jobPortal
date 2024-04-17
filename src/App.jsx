@@ -1,27 +1,24 @@
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
+import Home from "./components/Home";
+import Navcontents from "./components/Navcontents";
+import Register from "./components/Register";
+import Login from "./components/Login";
+import Loginpage from "./components/Loginpage";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src="Octocat.png" className="App-logo" alt="logo" />
-        <p>
-          GitHub Codespaces <span className="heart">♥️</span> React
-        </p>
-        <p className="small">
-          Edit <code>src/App.jsx</code> and save to reload.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </p>
-      </header>
+      <Navcontents />
+
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          {/* <Route path='/Navcontents' element={<Navcontents/>}></Route> */}
+          <Route path="/Register" element={<Register />}></Route>
+          <Route path="/Login" element={<Login />}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
